@@ -1,9 +1,9 @@
-mport { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Combobox } from "@/components/ui/combobox";
-import { sendEmail } from "./emailService";
+import { useState } from "react";
+import { Card, CardContent } from "../components/card";  // Correct path for Card and CardContent
+import { Button } from "../components/button";  // Correct path for Button
+import { Input } from "../components/input";  // Correct path for Input
+import { Combobox } from "../components/combo";  // Correct path for Combobox
+import { sendEmail } from "../services/emailService";
 
 const medOptions = ["Amoxicillin", "Cephalexin", "Prednisone", "Carprofen", "Metronidazole"];
 
@@ -22,12 +22,23 @@ export default function VetMedOrderForm() {
   };
 
   const handleSubmit = () => {
+    if (!user.trim()) {
+      alert("Please enter your name or email.");
+      return;
+    }
+    if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity)) {
+      alert("Please add at least one valid medication order.");
+      return;
+    }
+
+    // Prepare the email data
     const emailData = {
       user,
       orders: orders.filter((o) => o.med && o.quantity),
     };
+
+    // Call the sendEmail function to send the data
     sendEmail(emailData);
-    alert("Order submitted!");
   };
 
   return (
