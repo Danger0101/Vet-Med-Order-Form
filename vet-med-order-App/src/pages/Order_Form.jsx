@@ -403,6 +403,7 @@ export default function VetMedOrderForm() {
   const [user, setUser] = useState("");  // State for name or email
   const [orders, setOrders] = useState([{ med: "", quantity: "" }]);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate(); // Initialize navigate
 
   const filteredMedOptions = medOptions.filter((med) =>
     med.toLowerCase().includes(searchTerm.toLowerCase())
@@ -469,6 +470,7 @@ export default function VetMedOrderForm() {
         console.log(data); // Log the response to see more details
         if (data.success) {
           alert("Order submitted successfully!");
+          navigate("/");  // Navigate back to the homepage after successful submission
         } else {
           alert(`There was an issue submitting your order: ${data.message || data.error}`);
         }
@@ -513,7 +515,7 @@ export default function VetMedOrderForm() {
                 <Button
                   type="button"
                   onClick={() => removeOrder(index)}
-                  className="button remove"
+                  className="button remove-button bg-red-500 hover:bg-red-600 text-white"
                 >
                   Remove Med
                 </Button>
