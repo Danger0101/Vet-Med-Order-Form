@@ -14,33 +14,33 @@
 //   .catch(err => console.error("Email error:", err));
 // };
 // To Be Decided if will use emailjs or not.
-export const sendEmail = (emailData) => {
-  // Format the order details into a string
-  const formattedOrders = emailData.orders
-    .map((o) => `${o.med}: ${o.quantity}`)
-    .join(", ");
+// export const sendEmail = (emailData) => {
+//   // Format the order details into a string
+//   const formattedOrders = emailData.orders
+//     .map((o) => `${o.med}: ${o.quantity}`)
+//     .join(", ");
 
-  // Prepare the request body for the email
-  const requestBody = {
-    _subject: "New Veterinary Med Order",
-    user: emailData.user, // Dynamically get the user's name or email
-    orders: formattedOrders,
-  };
+//   // Prepare the request body for the email
+//   const requestBody = {
+//     _subject: "New Veterinary Med Order",
+//     user: emailData.user, // Dynamically get the user's name or email
+//     orders: formattedOrders,
+//   };
 
-  // Send the email using FormSubmit API
-  fetch("https://formsubmit.co/el/jeluvu", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(requestBody),
-  })
-    .then(() => {
-      alert("Order submitted successfully!");
-    })
-    .catch((err) => {
-      console.error("Error:", err);
-      alert("There was an issue submitting your order.");
-    });
-};
+//   // Send the email using FormSubmit API
+//   fetch("https://formsubmit.co/el/jeluvu", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(requestBody),
+//   })
+//     .then(() => {
+//       alert("Order submitted successfully!");
+//     })
+//     .catch((err) => {
+//       console.error("Error:", err);
+//       alert("There was an issue submitting your order.");
+//     });
+// };
 
 // Or Resend
 // import { Resend } from "resend";

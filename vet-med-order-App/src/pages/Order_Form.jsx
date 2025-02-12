@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { Card, CardContent } from "../components/card";
 import { Button } from "../components/button";
 import { Input } from "../components/input";
 import { Combobox } from "../components/combo";
-import { sendEmail } from "../services/emailService";
 import "../css/order-form.css";
 
 const medOptions = [
@@ -400,15 +400,13 @@ const medOptions = [
 ];
 
 export default function VetMedOrderForm() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("");  // State for name or email
   const [orders, setOrders] = useState([{ med: "", quantity: "" }]);
-  const [searchTerm, setSearchTerm] = useState(""); // State to track the search input
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter the medications based on the search term, sort alphabetically, and make all caps
-  const filteredMedOptions = medOptions
-    .filter((med) => med.toLowerCase().includes(searchTerm.toLowerCase())) // Filter based on search term
-    .sort() // Sort alphabetically
-    .map((med) => med.toUpperCase()); // Convert to uppercase
+  const filteredMedOptions = medOptions.filter((med) =>
+    med.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleOrderChange = (index, field, value) => {
     const newOrders = [...orders];
@@ -420,60 +418,115 @@ export default function VetMedOrderForm() {
     setOrders([...orders, { med: "", quantity: "" }]);
   };
 
+  const removeOrder = (index) => {
+    const newOrders = orders.filter((_, i) => i !== index);
+    setOrders(newOrders);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!user.trim()) {
+      alert("Please enter your name or email for verification.");
+      return;
+    }
+
+    if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity)) {
+      alert("Please add at least one valid medication order.");
+      return;
+    }
+
+    // Format the email message as plain text
+    const formattedMessage = orders
+      .map(
+        (order) => `
+        MEDICATION TO ORDER: ${order.med}
+        PLEASE ORDER: ${order.quantity}
+        ------------------------`
+      )
+      .join("\n");
+
+    // Prepare the email data (fields that will be sent to Web3Forms)
+    const formData = new FormData();
+    formData.append("access_key", "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0"); // Public Access Key from Web3Forms
+    formData.append("name_or_email", user);  // Added user verification field
+    formData.append("message", formattedMessage);
+
+    // Log the form data to debug
+    console.log("Form Data:", [...formData]);
+
+    // Send the form data to Web3Forms
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Accept": "application/json",
+        "Authorization": "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0", // Public Access Key from Web3Forms
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // Log the response to see more details
+        if (data.success) {
+          alert("Order submitted successfully!");
+        } else {
+          alert(`There was an issue submitting your order: ${data.message || data.error}`);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("There was an issue submitting your order.");
+      });
+  };
+
   return (
     <div className="max-w-full sm:max-w-lg mx-auto p-4">
       <Card className="card-container">
         <CardContent>
-          {/* Form with FormSubmit action */}
-          <form
-            action="https://formsubmit.co/jhummel001@gmail.com" // Replace with your email address in FormSubmit URL
-            method="POST"
-          >
-            {/* Name or Email Input */}
+          <form onSubmit={handleSubmit}>
             <Input
-              name="user" // name attribute to send data via FormSubmit
-              placeholder="Your Name or Email"
+              name="user"
+              placeholder="Enter your Name or Email for Verification"
               value={user}
               onChange={(e) => setUser(e.target.value)}
               className="input-field mb-6"
             />
-            
-            {/* Medication Orders Section */}
             {orders.map((order, index) => (
               <div key={index} className="form-container mb-4">
-                {/* Medication Combobox with name attribute for FormSubmit */}
                 <Combobox
-                  name={`med-${index}`} // Unique name for each medication order
+                  name={`med-${index}`}
                   options={filteredMedOptions}
                   placeholder="Select Med"
                   value={order.med}
                   onChange={(value) => handleOrderChange(index, "med", value)}
-                  onInputChange={(e) => setSearchTerm(e.target.value)} // Update search term as user types
+                  onInputChange={(e) => setSearchTerm(e.target.value)}
                   className="combobox"
                 />
-                
-                {/* Medication Quantity Input */}
                 <Input
                   type="number"
-                  name={`quantity-${index}`} // Unique name for each quantity
+                  name={`quantity-${index}`}
                   placeholder="Quantity"
                   value={order.quantity}
                   onChange={(e) => handleOrderChange(index, "quantity", e.target.value)}
                   className="input-field"
                 />
+                <Button
+                  type="button"
+                  onClick={() => removeOrder(index)}
+                  className="button remove"
+                >
+                  Remove Med
+                </Button>
               </div>
             ))}
-            
             <div className="flex gap-4 mb-4">
-              {/* Button to add more orders */}
-              <Button type="button" onClick={addOrder} className="button secondary">+ Add More</Button>
-              {/* Submit button */}
-              <Button type="submit" className="button primary">Submit</Button>
+              <Button type="button" onClick={addOrder} className="button secondary">
+                + Add More
+              </Button>
+              <Button type="submit" className="button primary">
+                Submit
+              </Button>
             </div>
-
-            {/* Hidden input fields for additional form configuration */}
-            <input type="hidden" name="_next" value="https://your-website.com/thank-you" />
-            <input type="hidden" name="_subject" value="New Veterinary Med Order" />
           </form>
         </CardContent>
       </Card>
