@@ -416,12 +416,22 @@ export default function VetMedOrderForm() {
   };
 
   const addOrder = () => {
-    setOrders([...orders, { med: "", quantity: "" }]);
+    // Prevent adding a new order if the first order is still empty
+    if (orders.some((order) => !order.med || !order.quantity)) {
+      alert("Please fill out the current medication order before adding a new one.");
+    } else {
+      setOrders([...orders, { med: "", quantity: "" }]);
+    }
   };
 
   const removeOrder = (index) => {
-    const newOrders = orders.filter((_, i) => i !== index);
-    setOrders(newOrders);
+    // Make sure there's always at least one order
+    if (orders.length > 1) {
+      const newOrders = orders.filter((_, i) => i !== index);
+      setOrders(newOrders);
+    } else {
+      alert("You must always have at least one medication order.");
+    }
   };
 
   const handleSubmit = (e) => {
@@ -433,7 +443,7 @@ export default function VetMedOrderForm() {
     }
 
     if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity)) {
-      alert("Please add at least one valid medication order.");
+      alert("Please enter the quantity you want ordered.");
       return;
     }
 
