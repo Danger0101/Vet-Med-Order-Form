@@ -400,79 +400,38 @@ const medOptions = [
 ];
 
 export default function VetMedOrderForm() {
-  const [user, setUser] = useState(""); // User name or email
-  const [orders, setOrders] = useState([{ med: "", quantity: "" }]); // Medication orders
-  const [searchTerm, setSearchTerm] = useState(""); // Search term for filtering medication
+  const [user, setUser] = useState("");
+  const [orders, setOrders] = useState([{ med: "", quantity: "" }]);
+  const [searchTerm, setSearchTerm] = useState(""); // State to track the search input
 
-  // Filter medications based on search term
+  // Filter the medications based on the search term, sort alphabetically, and make all caps
   const filteredMedOptions = medOptions
     .filter((med) => med.toLowerCase().includes(searchTerm.toLowerCase())) // Filter based on search term
     .sort() // Sort alphabetically
     .map((med) => med.toUpperCase()); // Convert to uppercase
 
-  // Handle change in medication or quantity
   const handleOrderChange = (index, field, value) => {
     const newOrders = [...orders];
     newOrders[index][field] = value;
     setOrders(newOrders);
   };
 
-  // Add a new medication order
   const addOrder = () => {
     setOrders([...orders, { med: "", quantity: "" }]);
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!user.trim()) {
-      alert("Please enter your name or email.");
-      return;
-    }
-    if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity)) {
-      alert("Please add at least one valid medication order.");
-      return;
-    }
-
-    // Prepare the email data
-    const emailData = {
-      user,
-      orders: orders.filter((o) => o.med && o.quantity),
-    };
-
-    // Send data via POST request
-    try {
-      const response = await fetch("https://formsubmit.co/el/jeluvu", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          _subject: "New Veterinary Med Order",
-          user: emailData.user,
-          orders: emailData.orders.map((order) => `${order.med}: ${order.quantity}`).join(", "),
-        }),
-      });
-
-      if (response.ok) {
-        alert("Order submitted successfully!");
-      } else {
-        alert("There was an issue submitting your order.");
-      }
-    } catch (err) {
-      console.error("Error:", err);
-      alert("There was an issue submitting your order.");
-    }
   };
 
   return (
     <div className="max-w-full sm:max-w-lg mx-auto p-4">
       <Card className="card-container">
         <CardContent>
-          {/* Form with direct POST request */}
-          <form onSubmit={handleSubmit}>
+          {/* Form with FormSubmit action */}
+          <form
+            action="https://formsubmit.co/jhummel001@gmail.com" // Replace with your email address in FormSubmit URL
+            method="POST"
+          >
+            {/* Name or Email Input */}
             <Input
-              name="user" // Use name attribute to connect with FormSubmit
+              name="user" // name attribute to send data via FormSubmit
               placeholder="Your Name or Email"
               value={user}
               onChange={(e) => setUser(e.target.value)}
@@ -511,6 +470,10 @@ export default function VetMedOrderForm() {
               {/* Submit button */}
               <Button type="submit" className="button primary">Submit</Button>
             </div>
+
+            {/* Hidden input fields for additional form configuration */}
+            <input type="hidden" name="_next" value="https://your-website.com/thank-you" />
+            <input type="hidden" name="_subject" value="New Veterinary Med Order" />
           </form>
         </CardContent>
       </Card>
