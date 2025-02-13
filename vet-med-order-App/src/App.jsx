@@ -5,12 +5,12 @@ import "./css/App.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Vet-Med-Order-Form">
       <div className="app-container">
         <h1>Vet Med Order Form</h1>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/order" element={<VetMedOrderForm />} />
+          <Route path="/order-form" element={<VetMedOrderForm />} />
         </Routes>
       </div>
     </Router>
