@@ -5,7 +5,7 @@ import "./css/App.css";
 
 function App() {
   return (
-    <Router basename="/Vet-Med-Order-Form">
+    <Router basename="/Vet-Med-Order-Form/">
       <div className="app-container">
         <h1>Vet Med Order Form</h1>
         <Routes>
