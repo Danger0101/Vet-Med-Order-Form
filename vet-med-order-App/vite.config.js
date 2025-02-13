@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/Vet-Med-Order-Form/", // 👈 Add this line
+  base: "/Vet-Med-Order-Form/", // This is needed for GitHub Pages
 });
