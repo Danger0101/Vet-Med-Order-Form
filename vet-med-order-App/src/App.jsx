@@ -1,11 +1,11 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";  // Change HashRouter to BrowserRouter
 import Home from "./pages/Home";
 import VetMedOrderForm from "./pages/Order_Form";
 import "./css/App.css";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/Vet-Med-Order-Form">
       <div className="app-container">
         <h1>Vet Med Order Form</h1>
         <Routes>
@@ -13,7 +13,7 @@ function App() {
           <Route path="/order-form" element={<VetMedOrderForm />} />
         </Routes>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

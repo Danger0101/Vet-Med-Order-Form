@@ -10,7 +10,7 @@ export default function Home() {
       <Card className="p-6 text-center">
         <CardContent>
           <p className="text-gray-600 mb-6">Easily order veterinary medications online.</p>
-          <Button onClick={() => navigate("/order")} className="bg-blue-500 text-white">
+          <Button onClick={() => navigate("/order-form")} className="bg-blue-500 text-white">
             Place an Order
           </Button>
         </CardContent>
