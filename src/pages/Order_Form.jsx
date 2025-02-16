@@ -60,16 +60,16 @@ export default function VetMedOrderForm() {
       .map(
         (order) => `
         Medication To Order:
-           ${order.med}
+        •   ${order.med}
 
         Order From Company:
-           ${order.company}
+        •   ${order.company}
 
         Quantity Requested:
-           ${order.quantity}
+        •   ${order.quantity}
 
         For Location:
-           ${order.location}
+        •   ${order.location}
         ------------------------`
       )
       .join("\n");
