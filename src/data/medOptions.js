@@ -1064,26 +1064,59 @@ export const medOptions = [
     med: "ZODON liquid (PK 1)",
     company: "NVS",
   },
-  { med: "ZYLKENE CAPS 450MG (PK 20)", company: "NVS" },
+  {
+    med: "ZYLKENE CAPS 450MG (PK 20)",
+    company: "NVS",
+  },
   {
     med: "ZYLKENE CAPS 75MG (PK 100)",
     company: "NVS",
   },
-  { med: "Amantadine HCl 10mg 100 Tablets", company: "Summit" },
-  { med: "Amantadine HCl 25mg 100 Tablets", company: "Summit" },
-  { med: "Amantadine HCl 50mg 100 Tablets", company: "Summit" },
-  { med: "Amantadine HCl 75mg 100 Tablets", company: "Summit" },
-  { med: "Amitriptyline 5mg (flavoured) 100 Tablets", company: "Summit" },
+  {
+    med: "Amantadine HCl 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amantadine HCl 25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amantadine HCl 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amantadine HCl 75mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amitriptyline 5mg (flavoured) 100 Tablets",
+    company: "Summit",
+  },
   {
     med:
       "Amlodipine Transdermal Gel 12.5mg/mL (1.25mg/0.1mL) 3 x 1ml Syringes (1 box)",
     company: "Summit",
   },
-  { med: "Amlodipine 0.3125mg 100 Tablets", company: "Summit" },
-  { med: "Amlodipine 0.625mg 100 Tablets", company: "Summit" },
-  { med: "Amlodipine 0.625mg 250 Tablets", company: "Summit" },
-  { med: "Atenolol 6.25mg 100 Tablets", company: "Summit" },
-  { med: "Budesonide 1mg 100 Tablets", company: "Summit" },
+  {
+    med: "Amlodipine 0.3125mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amlodipine 0.625mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Amlodipine 0.625mg 250 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Atenolol 6.25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Budesonide 1mg 100 Tablets",
+    company: "Summit",
+  },
   {
     med: "Buprenorphine 0.2mg/mL Sublingual Solution 10ml Bottle",
     company: "Summit",
@@ -1100,23 +1133,62 @@ export const medOptions = [
     med: "Buprenorphine 0.8mg/mL Sublingual Solution 30ml Bottle",
     company: "Summit",
   },
-  { med: "Cisapride 2.5mg 100 Tablets", company: "Summit" },
-  { med: "Cisapride 5mg 100 Tablets", company: "Summit" },
-  { med: "Cisapride Suspension 5mg/mL (30mL) 30ml Bottle", company: "Summit" },
-  { med: "Clopidogrel 18.75mg 100 Tablets", company: "Summit" },
-  { med: "Dantrolene Sodium 6.25mg  100 Tablets", company: "Summit" },
+  {
+    med: "Cisapride 2.5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Cisapride 5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Cisapride Suspension 5mg/mL (30mL) 30ml Bottle",
+    company: "Summit",
+  },
+  {
+    med: "Clopidogrel 18.75mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Dantrolene Sodium 6.25mg  100 Tablets",
+    company: "Summit",
+  },
   {
     med: "Doxycycline 50mg/mL Recostitute for Oral Solution 30mL Bottle",
     company: "Summit",
   },
-  { med: "Famotidine 5mg 100 Tablets", company: "Summit" },
-  { med: "Fludrocortisone Acetate 0.05mg  100 Tablets", company: "Summit" },
-  { med: "Fludrocortisone Acetate 0.25mg  100 Tablets", company: "Summit" },
-  { med: "Furosemide 10mg 100 Tablets", company: "Summit" },
-  { med: "Gabapentin 25mg 100 Tablets", company: "Summit" },
-  { med: "Gabapentin 25mg 250 Tablets", company: "Summit" },
-  { med: "Gabapentin 50mg 100 Tablets", company: "Summit" },
-  { med: "Gabapentin 50mg 250 Tablets", company: "Summit" },
+  {
+    med: "Famotidine 5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Fludrocortisone Acetate 0.05mg  100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Fludrocortisone Acetate 0.25mg  100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Furosemide 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Gabapentin 25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Gabapentin 25mg 250 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Gabapentin 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Gabapentin 50mg 250 Tablets",
+    company: "Summit",
+  },
   {
     med: "Gabapentin 60mg/mL Oral Solution (Chicken Flavour) 50mL Bottle",
     company: "Summit",
@@ -1126,40 +1198,130 @@ export const medOptions = [
       "Methimazole Transdermal Gel 50mg/mL (5mg/0.1mL) 3 x 1ml Syringes (1 box)",
     company: "Summit",
   },
-  { med: "Metronidazole 25mg 100 Tablets", company: "Summit" },
-  { med: "Metronidazole 50mg 100 Tablets", company: "Summit" },
-  { med: "Metronidazole 50mg 250 Tablets", company: "Summit" },
-  { med: "Metronidazole 100mg 100 Tablets", company: "Summit" },
-  { med: "Mexilitine HCl 50mg 100 Tablets", company: "Summit" },
-  { med: "Mexilitine HCl 100mg  100 Tablets", company: "Summit" },
-  { med: "Mirtazapine 2mg 30 Tablets", company: "Summit" },
-  { med: "Mirtazapine 2mg 100 Tablets", company: "Summit" },
-  { med: "Omeprazole (Buffered) 2.5mg 100 Tablets", company: "Summit" },
-  { med: "Omeprazole (Buffered) 5mg 100 Tablets", company: "Summit" },
+  {
+    med: "Metronidazole 25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Metronidazole 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Metronidazole 50mg 250 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Metronidazole 100mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Mexilitine HCl 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Mexilitine HCl 100mg  100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Mirtazapine 2mg 30 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Mirtazapine 2mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Omeprazole (Buffered) 2.5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Omeprazole (Buffered) 5mg 100 Tablets",
+    company: "Summit",
+  },
   {
     med: "PEG 3350 (Polyethylene Glycol) Powder 75g Powder",
     company: "Summit",
   },
-  { med: "Phenoxybenzamine HCl 5mg 100 Tablets", company: "Summit" },
-  { med: "Phenoxybenzamine HCl 10mg 100 Tablets", company: "Summit" },
-  { med: "Piroxicam 1.5mg 100 Tablets", company: "Summit" },
-  { med: "Piroxicam 5mg 100 Tablets", company: "Summit" },
-  { med: "Potassium Bromide 300mg/mL 30ml Bottle", company: "Summit" },
-  { med: "Potassium Bromide 300mg/mL 100ml Bottle", company: "Summit" },
-  { med: "Potassium Bromide 300mg/mL 250ml Bottle", company: "Summit" },
-  { med: "Pregabalin 20mg 100 Tablets", company: "Summit" },
-  { med: "Ranitidine HCL 5mg 100 Tablets", company: "Summit" },
-  { med: "Ranitidine HCL 10mg 100 Tablets", company: "Summit" },
-  { med: "Ranitidine HCL 25mg 100 Tablets", company: "Summit" },
-  { med: "Ronidazole 30mg 30 Tablets", company: "Summit" },
-  { med: "Ronidazole 30mg 100 Tablets", company: "Summit" },
-  { med: "Ronidazole 60mg  30 Tablets", company: "Summit" },
-  { med: "Ronidazole 60mg  100 Tablets", company: "Summit" },
-  { med: "Sildenafil 6.25mg 100 Tablets", company: "Summit" },
-  { med: "Sidenafil 10mg 100 Tablets", company: "Summit" },
-  { med: "Sidenafil 12.5mg 100 Tablets", company: "Summit" },
-  { med: "Sotalol HCl 10mg 100 Tablets", company: "Summit" },
-  { med: "Sucralfate 1000mg Tablets 30 Tablets", company: "Summit" },
+  {
+    med: "Phenoxybenzamine HCl 5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Phenoxybenzamine HCl 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Piroxicam 1.5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Piroxicam 5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Potassium Bromide 300mg/mL 30ml Bottle",
+    company: "Summit",
+  },
+  {
+    med: "Potassium Bromide 300mg/mL 100ml Bottle",
+    company: "Summit",
+  },
+  {
+    med: "Potassium Bromide 300mg/mL 250ml Bottle",
+    company: "Summit",
+  },
+  {
+    med: "Pregabalin 20mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ranitidine HCL 5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ranitidine HCL 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ranitidine HCL 25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ronidazole 30mg 30 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ronidazole 30mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ronidazole 60mg  30 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ronidazole 60mg  100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Sildenafil 6.25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Sidenafil 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Sidenafil 12.5mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Sotalol HCl 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Sucralfate 1000mg Tablets 30 Tablets",
+    company: "Summit",
+  },
   {
     med:
       "Tramadol HCl Transdermal Gel 50mg/mL (5mg/0.1mL) 3 x 1ml Syringes (1 box)",
@@ -1173,71 +1335,230 @@ export const medOptions = [
     med: "Tramadol HCl 20mg/mL Oral Solution (Honey Flavoured) 30ml Bottle",
     company: "Summit",
   },
-  { med: "Tramadol 10mg 100 Tablets", company: "Summit" },
-  { med: "Tramadol 10mg 250 Tablets", company: "Summit" },
-  { med: "Tramadol 25mg 100 Tablets", company: "Summit" },
-  { med: "Tramadol 25mg 250 Tablets", company: "Summit" },
-  { med: "Tramadol 40mg 100 Tablets", company: "Summit" },
-  { med: "Tramadol 75mg 100 Tablets", company: "Summit" },
-  { med: "Terbutaline sulfate", company: "Summit" },
-  { med: "Tylosin 50mg 100 Tablets", company: "Summit" },
-  { med: "Tylosin 100mg 100 Tablets", company: "Summit" },
-  { med: "Ursodiol 50mg 100 Tablets", company: "Summit" },
-  { med: "ACULAR OPHTH SOL ", company: "ProMedic" },
-  { med: "ADRENALINE AMPS 1/ 1000 1ML", company: "ProMedic" },
-  { med: "Amantadine hydrochloride 100mg", company: "ProMedic" },
-  { med: "ATROPINE SULPH 600mcg/1ml", company: "ProMedic" },
-  { med: "Bupivacaine Steri-pk Amp 0.25%", company: "ProMedic" },
-  { med: "Bupivacaine Steri-pk Amp 0.5%", company: "ProMedic" },
-  { med: "Chloramphenicol Eye Drops 0.5% (4pack)", company: "ProMedic" },
-  { med: "Chloramphenicol Eye Oint 1%", company: "ProMedic" },
-  { med: "Chlorphenamine Inj 10mg/ml", company: "ProMedic" },
-  { med: "Depo - medrone", company: "ProMedic" },
-  { med: "Depo - medrone (10)", company: "ProMedic" },
-  { med: "DIAZEPAM BP 10MG/2ML(CD SCH 4)", company: "ProMedic" },
-  { med: "DIAZEPAM RECTUBE 10MG DEST", company: "ProMedic" },
-  { med: "DIAZEPAM RECTUBES 5MG", company: "ProMedic" },
-  { med: "DIAZEPAM TABS 10MG(CD SCH 4)", company: "ProMedic" },
-  { med: "DIAZEPAM TABS 2MG(CD SCH 4)", company: "ProMedic" },
-  { med: "DIAZEPAM TABS 5MG(CD SCH 4)", company: "ProMedic" },
-  { med: "Emla Cream 30g", company: "ProMedic" },
-  { med: "Emla Cream 5g", company: "ProMedic" },
-  { med: "Exocin Eye Drops", company: "ProMedic" },
-  { med: "Fluoxetine 20mg/5ml", company: "ProMedic" },
-  { med: "GABAPENTIN CAPS 100MG (CD SCH 3)", company: "ProMedic" },
-  { med: "GABAPENTIN CAPS 300MG (CD SCH 3)", company: "ProMedic" },
-  { med: "GABAPENTIN CAPS 400MG (CD SCH 3)", company: "ProMedic" },
-  { med: "Glucose 50% Inf Amp 20ml", company: "ProMedic" },
+  {
+    med: "Tramadol 10mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tramadol 10mg 250 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tramadol 25mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tramadol 25mg 250 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tramadol 40mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tramadol 75mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Terbutaline sulfate",
+    company: "Summit",
+  },
+  {
+    med: "Tylosin 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Tylosin 100mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "Ursodiol 50mg 100 Tablets",
+    company: "Summit",
+  },
+  {
+    med: "ACULAR OPHTH SOL ",
+    company: "ProMedic",
+  },
+  {
+    med: "ADRENALINE AMPS 1/ 1000 1ML",
+    company: "ProMedic",
+  },
+  {
+    med: "Amantadine hydrochloride 100mg",
+    company: "ProMedic",
+  },
+  {
+    med: "ATROPINE SULPH 600mcg/1ml",
+    company: "ProMedic",
+  },
+  {
+    med: "Bupivacaine Steri-pk Amp 0.25%",
+    company: "ProMedic",
+  },
+  {
+    med: "Bupivacaine Steri-pk Amp 0.5%",
+    company: "ProMedic",
+  },
+  {
+    med: "Chloramphenicol Eye Drops 0.5% (4pack)",
+    company: "ProMedic",
+  },
+  {
+    med: "Chloramphenicol Eye Oint 1%",
+    company: "ProMedic",
+  },
+  {
+    med: "Chlorphenamine Inj 10mg/ml",
+    company: "ProMedic",
+  },
+  {
+    med: "Depo - medrone",
+    company: "ProMedic",
+  },
+  {
+    med: "Depo - medrone (10)",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM BP 10MG/2ML(CD SCH 4)",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM RECTUBE 10MG DEST",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM RECTUBES 5MG",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM TABS 10MG(CD SCH 4)",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM TABS 2MG(CD SCH 4)",
+    company: "ProMedic",
+  },
+  {
+    med: "DIAZEPAM TABS 5MG(CD SCH 4)",
+    company: "ProMedic",
+  },
+  {
+    med: "Emla Cream 30g",
+    company: "ProMedic",
+  },
+  {
+    med: "Emla Cream 5g",
+    company: "ProMedic",
+  },
+  {
+    med: "Exocin Eye Drops",
+    company: "ProMedic",
+  },
+  {
+    med: "Fluoxetine 20mg/5ml",
+    company: "ProMedic",
+  },
+  {
+    med: "GABAPENTIN CAPS 100MG (CD SCH 3)",
+    company: "ProMedic",
+  },
+  {
+    med: "GABAPENTIN CAPS 300MG (CD SCH 3)",
+    company: "ProMedic",
+  },
+  {
+    med: "GABAPENTIN CAPS 400MG (CD SCH 3)",
+    company: "ProMedic",
+  },
+  {
+    med: "Glucose 50% Inf Amp 20ml",
+    company: "ProMedic",
+  },
   {
     med: "HYDROXOCOBALAMIN 1mg/1ml INJ AMPS (5) [Vitamin B12]",
     company: "ProMedic",
   },
-  { med: "LEVETIRACETAM 100mg/Ml ORAL SOLUTION (300ml)", company: "ProMedic" },
-  { med: "LEVETIRACETAM 250mg TABLETS (60)", company: "ProMedic" },
-  { med: "LEVETIRACETAM 500mg TABLETS (60)", company: "ProMedic" },
-  { med: "Lidocaine Hydrochloride 2% Inj", company: "ProMedic" },
-  { med: "Maxidex 0.1%", company: "ProMedic" },
+  {
+    med: "LEVETIRACETAM 100mg/Ml ORAL SOLUTION (300ml)",
+    company: "ProMedic",
+  },
+  {
+    med: "LEVETIRACETAM 250mg TABLETS (60)",
+    company: "ProMedic",
+  },
+  {
+    med: "LEVETIRACETAM 500mg TABLETS (60)",
+    company: "ProMedic",
+  },
+  {
+    med: "Lidocaine Hydrochloride 2% Inj",
+    company: "ProMedic",
+  },
+  {
+    med: "Maxidex 0.1%",
+    company: "ProMedic",
+  },
   {
     med: "Maxitrol Eye Drops - no longer available from promedic",
     company: "ProMedic",
   },
-  { med: "Maxitrol Ointment 0.1%", company: "ProMedic" },
-  { med: "METRONIDAZOLE (5mg/Ml) Solution For Infusion", company: "ProMedic" },
-  { med: "Micralax Enema", company: "ProMedic" },
-  { med: "MIDAZOLAM 10mg/2ml INJ AMPS (10) [CD3]", company: "ProMedic" },
-  { med: "MINIMS ATROPINE SULPH 1%", company: "ProMedic" },
-  { med: "MINIMS FLUORESCEIN SODIUM 1%", company: "ProMedic" },
+  {
+    med: "Maxitrol Ointment 0.1%",
+    company: "ProMedic",
+  },
+  {
+    med: "METRONIDAZOLE (5mg/Ml) Solution For Infusion",
+    company: "ProMedic",
+  },
+  {
+    med: "Micralax Enema",
+    company: "ProMedic",
+  },
+  {
+    med: "MIDAZOLAM 10mg/2ml INJ AMPS (10) [CD3]",
+    company: "ProMedic",
+  },
+  {
+    med: "MINIMS ATROPINE SULPH 1%",
+    company: "ProMedic",
+  },
+  {
+    med: "MINIMS FLUORESCEIN SODIUM 1%",
+    company: "ProMedic",
+  },
   {
     med: "MINIMS PROXYMETACAINE HYD 0.5% SDU Eye Drops 0.5ml (20) (MOQ of 2)",
     company: "ProMedic",
   },
-  { med: "Mirtazapine Tabs 15mg", company: "ProMedic" },
-  { med: "Omeprazole 10mg (28)", company: "ProMedic" },
-  { med: "PARACETAMOL 250MG/5ML", company: "ProMedic" },
-  { med: "Paracetamol Sol For Inf 1g/100ml", company: "ProMedic" },
-  { med: "Trazadone 100mg", company: "ProMedic" },
-  { med: "Trazodone 150mg tablets (28)", company: "ProMedic" },
-  { med: "Trazodone 50mg capsuls (84)", company: "ProMedic" },
+  {
+    med: "Mirtazapine Tabs 15mg",
+    company: "ProMedic",
+  },
+  {
+    med: "Omeprazole 10mg (28)",
+    company: "ProMedic",
+  },
+  {
+    med: "PARACETAMOL 250MG/5ML",
+    company: "ProMedic",
+  },
+  {
+    med: "Paracetamol Sol For Inf 1g/100ml",
+    company: "ProMedic",
+  },
+  {
+    med: "Trazadone 100mg",
+    company: "ProMedic",
+  },
+  {
+    med: "Trazodone 150mg tablets (28)",
+    company: "ProMedic",
+  },
+  {
+    med: "Trazodone 50mg capsuls (84)",
+    company: "ProMedic",
+  },
   {
     med: "XANAX (ALPRAZOLAM) 500mcg Tablets (60) [CD4Pt1]",
     company: "ProMedic",
