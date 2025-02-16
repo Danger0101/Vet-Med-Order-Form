@@ -8,10 +8,11 @@ import "../css/order-form.css";
 import { medOptions } from "../data/medOptions";
 
 export default function VetMedOrderForm() {
-  const [user, setUser] = useState("");  // State for name or email
-  const [orders, setOrders] = useState([{ med: "", quantity: "", company: "", location: "" }]);
+  const [user, setUser] = useState("");  
+  const [location, setLocation] = useState("");  
+  const [orders, setOrders] = useState([{ med: "", quantity: "", company: "" }]);
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const filteredMedOptions = medOptions.filter((med) =>
     med.med.toLowerCase().includes(searchTerm.toLowerCase())
@@ -26,10 +27,10 @@ export default function VetMedOrderForm() {
   };
 
   const addOrder = () => {
-    if (orders.some((order) => !order.med || !order.quantity || !order.company || !order.location)) {
-      alert("Please fill out the current medication order before adding a new one.");
+    if (orders.some((order) => !order.med || !order.quantity || !order.company) || !location) {
+      alert("Please fill out all fields before adding a new order.");
     } else {
-      setOrders([...orders, { med: "", quantity: "", company: "", location: "" }]);
+      setOrders([...orders, { med: "", quantity: "", company: "" }]);
     }
   };
 
@@ -45,17 +46,16 @@ export default function VetMedOrderForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!user.trim()) {
-      alert("Please enter your name or email for verification.");
+    if (!user.trim() || !location.trim()) {
+      alert("Please enter your name/email and select a location.");
       return;
     }
 
-    if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity || !o.company || !o.location)) {
-      alert("Please enter the quantity, company, and location for each order.");
+    if (orders.length === 0 || orders.some((o) => !o.med || !o.quantity || !o.company)) {
+      alert("Please enter all medication details.");
       return;
     }
 
-    // Format the email message as plain text, including company and location
     const formattedMessage = orders
       .map(
         (order) => `
@@ -67,33 +67,29 @@ export default function VetMedOrderForm() {
 
         Quantity Requested:
         •   ${order.quantity}
-
-        For Location:
-        •   ${order.location}
         ------------------------`
       )
       .join("\n");
 
-    // Prepare the email data (fields that will be sent to Web3Forms)
     const formData = new FormData();
-    formData.append("access_key", "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0"); // Public Access Key from Web3Forms
-    formData.append("name_or_email", user);  // Added user verification field
+    formData.append("access_key", "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0");
+    formData.append("name_or_email", user);
+    formData.append("location", location);
     formData.append("message", formattedMessage);
 
-    // Send the form data to Web3Forms
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData,
       headers: {
         "Accept": "application/json",
-        "Authorization": "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0", // Public Access Key from Web3Forms
+        "Authorization": "db1c9c3c-bfc8-4159-86e9-d9a3c36ae9e0",
       },
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
           alert("Order submitted successfully!");
-          navigate("/");  // Navigate back to the homepage after successful submission
+          navigate("/");
         } else {
           alert(`There was an issue submitting your order: ${data.message || data.error}`);
         }
@@ -109,13 +105,30 @@ export default function VetMedOrderForm() {
       <Card className="card-container">
         <CardContent>
           <form onSubmit={handleSubmit}>
-            <Input
-              name="user"
-              placeholder="Enter your Name or Email for Verification"
-              value={user}
-              onChange={(e) => setUser(e.target.value)}
-              className="input-field mb-6"
-            />
+            {/* Flex container for Name/Email and Location dropdown in one row */}
+            <div className="flex gap-4 mb-6">
+              <Input
+                name="user"
+                placeholder="Enter Name or Email"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+                className="input-field flex-1"
+              />
+              <select
+                name="location"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="input-field flex-1"
+              >
+                <option value="">Select Location</option>
+                {locations.map((loc, idx) => (
+                  <option key={idx} value={loc}>
+                    {loc}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {orders.map((order, index) => (
               <div key={index} className="form-container mb-4">
                 <Combobox
@@ -139,19 +152,6 @@ export default function VetMedOrderForm() {
                   onChange={(e) => handleOrderChange(index, "quantity", e.target.value)}
                   className="input-field"
                 />
-                <select
-                  name={`location-${index}`}
-                  value={order.location}
-                  onChange={(e) => handleOrderChange(index, "location", e.target.value)}
-                  className="input-field"
-                >
-                  <option value="">Select Location</option>
-                  {locations.map((location, idx) => (
-                    <option key={idx} value={location}>
-                      {location}
-                    </option>
-                  ))}
-                </select>
                 <Button
                   type="button"
                   onClick={() => removeOrder(index)}
@@ -161,6 +161,7 @@ export default function VetMedOrderForm() {
                 </Button>
               </div>
             ))}
+
             <div className="flex gap-4 mb-4">
               <Button type="button" onClick={addOrder} className="button secondary">
                 + Add More
