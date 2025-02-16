@@ -5,7 +5,7 @@ import "./css/App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/Vet-Med-Order-Form">
+    <BrowserRouter basename="/">
       <div className="app-container">
         <h1>Vet Med Order Form</h1>
         <Routes>
