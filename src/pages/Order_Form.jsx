@@ -6,6 +6,7 @@ import { Input } from "../components/input";
 import { Combobox } from "../components/combo";
 import "../css/order-form.css";
 import { medOptions } from "../data/medOptions";
+import React from "react";
 
 export default function VetMedOrderForm() {
   const [user, setUser] = useState("");  
@@ -160,6 +161,7 @@ export default function VetMedOrderForm() {
                 >
                   Remove Med
                 </Button>
+                <br />
               </div>
             ))}
 
