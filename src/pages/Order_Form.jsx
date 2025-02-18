@@ -131,19 +131,20 @@ export default function VetMedOrderForm() {
 
             {orders.map((order, index) => (
               <div key={index} className="form-container mb-4">
+                <div>
                 <Combobox
-                  name={`med-${index}`}
-                  options={filteredMedOptions.map((item) => item.med)}
-                  placeholder="Select Med"
-                  value={order.med}
-                  onChange={(value) => {
-                    const selectedMed = medOptions.find((item) => item.med === value);
-                    handleOrderChange(index, "med", value);
-                    handleOrderChange(index, "company", selectedMed ? selectedMed.company : "");
-                  }}
-                  onInputChange={(e) => setSearchTerm(e.target.value)}
-                  className="combobox"
+                name={`med-${index}`}
+                options={medOptions.map((item) => item.med)} // Pass med names only
+                placeholder="Search or Enter Med"
+                value={order.med}
+                onChange={(value) => {
+                  const selectedMed = medOptions.find((item) => item.med === value);
+                  handleOrderChange(index, "med", value);
+                  handleOrderChange(index, "company", selectedMed ? selectedMed.company : "Unknown");
+                }}
+                className="combobox"
                 />
+                </div>
                 <Input
                   type="number"
                   name={`quantity-${index}`}
