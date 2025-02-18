@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 vet-med-order-App/
+.env
