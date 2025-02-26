@@ -233,27 +233,28 @@ export default function VetMedOrderForm() {
       return;
     }
 
-    fetch("https://script.google.com/macros/s/AKfycbxoH2uK5cByOQWfBVp3k21tRdr-mkGNSheMpwajm7rDn0ZH_9AXbcIim-Ge0jvB3U-68w/exec", {
-    method: "POST",
-    body: JSON.stringify({ user, location, orders }),
-    headers: {
-      "Content-Type": "application/json"
-    },
-    mode: "cors"  // Ensure CORS is enabled
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      alert("Order submitted successfully!");
-      navigate("/");
-    } else {
-      alert(`There was an issue submitting your order: ${data.message || data.error}`);
-    }
-  })
-  .catch(error => {
-    console.error("Error:", error);
-    alert("There was an issue submitting your order.");
-  });};
+    fetch("https://script.google.com/macros/s/AKfycbwlYWfSri2yTTdZDA5vXMmZAvWidQMmcaSv7RRHxWrXau5_-6p7CtBTu1hGgS9YQyaikw/exec", {
+      method: "POST",
+      body: JSON.stringify({ user, location, orders }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      mode: "cors"  // Ensure CORS is enabled
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Order submitted successfully!");
+        navigate("/");  // Redirect to another page after submission
+      } else {
+        alert(`There was an issue submitting your order: ${data.message || data.error}`);
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("There was an issue submitting your order.");
+    });
+  };
 
   return (
     <div className="max-w-full sm:max-w-lg mx-auto p-4">
